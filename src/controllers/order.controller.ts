@@ -7,6 +7,11 @@ async function getAllOrders(_req: Request, res: Response) {
   res.status(200).json(orders);
 }
 
+async function createOrderList(_req: Request, res: Response) {
+  res.status(200).json();
+}
+
 export default {
   getAllOrders,
+  createOrderList,
 };
