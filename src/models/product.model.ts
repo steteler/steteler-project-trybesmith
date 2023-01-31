@@ -19,7 +19,17 @@ async function createProduct(product: Product): Promise<number> {
   return insertId;
 }
 
+async function updateProduct(productId: number, orderID: number): Promise<number> {
+  await connection.execute<ResultSetHeader>(
+    'UPDATE Trybesmith.products  SET order_id = ? WHERE id = ?',
+    [orderID, productId],
+  );
+
+  return 1;
+}
+
 export default {
   getAllProducts,
   createProduct,
+  updateProduct,
 };
